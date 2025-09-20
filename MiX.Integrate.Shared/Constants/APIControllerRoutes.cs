@@ -5,6 +5,13 @@ namespace MiX.Integrate.Shared.Constants
 {
 	public class APIControllerRoutes
 	{
+		//MiX.Integrate.Api.Controllers.AempController 
+		public class AempController
+		{
+			public const string GETFLEETSNAPSHOT = "api/aemp/{organisationid}";
+			public const string GETFLEETSNAPSHOTPAGED = "api/aemp/{organisationId}/{pageNum}";
+		}
+
 		//MiX.Integrate.Api.Controllers.ActiveEventController 
 		public class ActiveEventsController
 		{
@@ -149,6 +156,14 @@ namespace MiX.Integrate.Shared.Constants
 			public const string ADDDRIVER = "api/drivers";
 			public const string GETALLDRIVERS = "api/drivers/organisation/{organisationId}";
 			public const string GETGROUPDRIVERS = "api/drivers/group/{groupId}";
+		}
+
+		//MiX.Integrate.Api.Controllers.DtcController
+		public class DtcController
+		{
+			public const string GETFAULTEDASSETSBYGROUP = "api/dtc/faultedassets/{groupId}";
+			public const string GETFAULTSFORASSETS = "api/dtc/faults/assets";
+			public const string GETDTCMESSAGEHISTORYFORASSET = "api/dtc/messages/{assetId}/{from}/{to}";
 		}
 
 		//MiX.Integrate.Api EventsController

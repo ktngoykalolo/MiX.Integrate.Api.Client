@@ -80,15 +80,17 @@ AssetTypeIds are not currently exposed as an enumeration - this will be correcte
 		/// <summary>Usable battery capacity, in kilowatt-hours</summary>
 		public int? UsableBatteryCapacitykWh { get; set; }
 
-
-
 		// A value is required for this field: either a vehicle make/manufacturer
 		// recognised by the Fleet Manager system, or "Other"   
 		public string Make { get; set; }
 		public string Model { get; set; }
 		public string Year { get; set; }
+
 		public string VinNumber { get; set; }
+		public string SerialNumber { get; set; }
+		public string AempEquipmentId { get; set; }
 		public string EngineNumber { get; set; }
+
 		public long? DefaultDriverId { get; set; }
 		public int? FmVehicleId { get; set; }
 		public string AdditionalMobileDevice { get; set; }
@@ -97,13 +99,13 @@ AssetTypeIds are not currently exposed as an enumeration - this will be correcte
 		public string Icon
 		{
 			get => _icon ?? AssetIcons.DefaultAssetIcon;
-			set { _icon = value; }
+			set => _icon = value;
 		}
 		private string _iconColour;
 		public string IconColour
 		{
 			get => _iconColour ?? AssetIcons.DefaultAssetIconColour;
-			set { _iconColour = value; }
+			set => _iconColour = value;
 		}
 		public string Colour { get; set; }
 
@@ -111,18 +113,16 @@ AssetTypeIds are not currently exposed as an enumeration - this will be correcte
 		public string AssetImage
 		{
 			get => _assetImage ?? AssetType.GetById(AssetTypeId)?.DefaultImage;
-			set { _assetImage = value; }
+			set => _assetImage = value;
 		}
 
-		public bool IsDefaultImage
-		{
-			get => _assetImage == null || string.Equals(_assetImage, AssetType.GetById(AssetTypeId)?.DefaultImage);
-		}
+		public bool IsDefaultImage => _assetImage == null || string.Equals(_assetImage, AssetType.GetById(AssetTypeId)?.DefaultImage);
 
 		public string AssetImageUrl { get; set; }
 		public string UserState { get; set; }
 		public string CreatedBy { get; set; }
 		public DateTimeOffset CreatedDate { get; set; }
+
 		public float? Odometer { get; set; }
 		public TimeSpan? EngineHours { get; set; }
 		public string Country { get; set; }
